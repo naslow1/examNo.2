@@ -75,7 +75,7 @@ form.addEventListener('submit', async (e) => {
       // Успешный результат
       form.style.display = 'none';
       result.style.display = 'block';
-      result.querySelector('.result__sub').textContent = 'Допуск выдан! Данные переданы инструктору, ждём на треке.';
+      result.querySelector('.result__sub').textContent = 'Кандидат допущен к практической части. Данные переданы инструктору.';
       result.scrollIntoView({ behavior: 'smooth' });
     } else {
       throw new Error('Telegram error');
@@ -83,7 +83,7 @@ form.addEventListener('submit', async (e) => {
 
   } catch (err) {
     // Обработка ошибки
-    alert('Произошла ошибка при отправке. Проверьте интернет.');
+    alert('Произошла ошибка при отправке. Проверьте впн.');
     btnText.textContent = originalText;
     submitBtn.disabled = false;
   }
