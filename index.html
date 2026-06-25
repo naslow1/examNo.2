@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Экзамен №2 | Мото-интенсив</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="header">
+      <div class="stamp">СЕКРЕТНО</div>
+      <div class="header__meta">
+        <span>Документ №002</span>
+        <span>Выдан: Настей</span>
+      </div>
+      <h1 class="header__title">ЭКЗАМЕН №2</h1>
+      <p class="header__subtitle">Дополнительный. Придуманный мной. Обязательный к сдаче.</p>
+      <p class="header__note">Мой экзамен-сдан,ваш-нет)</p>
+    </header>
+
+    <div class="moto-wrap">
+      <div class="moto-scene">
+        <div class="road"></div>
+        <svg class="moto" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- задние колесо -->
+          <circle cx="45" cy="72" r="22" fill="none" stroke="#e0e0e0" stroke-width="6"/>
+          <circle cx="45" cy="72" r="8" fill="#555"/>
+          <!-- переднее колесо -->
+          <circle cx="155" cy="72" r="22" fill="none" stroke="#e0e0e0" stroke-width="6"/>
+          <circle cx="155" cy="72" r="8" fill="#555"/>
+          <!-- рама -->
+          <line x1="45" y1="72" x2="100" y2="38" stroke="#ccc" stroke-width="4"/>
+          <line x1="100" y1="38" x2="155" y2="55" stroke="#ccc" stroke-width="4"/>
+          <line x1="100" y1="38" x2="85" y2="72" stroke="#ccc" stroke-width="4"/>
+          <!-- бак -->
+          <ellipse cx="105" cy="42" rx="28" ry="12" fill="#888"/>
+          <!-- сиденье -->
+          <rect x="68" y="34" width="40" height="8" rx="4" fill="#555"/>
+          <!-- руль -->
+          <line x1="148" y1="46" x2="168" y2="36" stroke="#aaa" stroke-width="3"/>
+          <line x1="165" y1="30" x2="165" y2="42" stroke="#aaa" stroke-width="3"/>
+          <!-- выхлоп -->
+          <path d="M50 72 Q30 80 15 75" stroke="#666" stroke-width="3" fill="none"/>
+          <!-- огни -->
+          <circle cx="170" cy="50" r="5" fill="#ffe066" class="headlight"/>
+        </svg>
+        <div class="exhaust">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <form class="form" id="examForm">
+
+      <div class="section">
+        <div class="section__label">БЛОК 01 — ДОПУСК К ТЕХНИКЕ</div>
+        <p class="section__desc">Для подбора экипировки нужны следующие данные. Без них к мотоциклу не подпустят.</p>
+
+        <div class="field">
+          <label class="field__label" for="head">Обхват головы <span class="field__unit">см</span></label>
+          <p class="field__hint">Измерить сантиметровой лентой по лбу и затылку</p>
+          <input class="field__input" type="number" id="head" name="head" placeholder="56" min="50" max="65" required />
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="height">Рост <span class="field__unit">см</span></label>
+          <input class="field__input" type="number" id="height" name="height" placeholder="170" min="140" max="210" required />
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="clothes">Размер одежды</label>
+          <div class="size-grid" id="clothes">
+            <button type="button" class="size-btn" data-value="XS">XS</button>
+            <button type="button" class="size-btn" data-value="S">S</button>
+            <button type="button" class="size-btn" data-value="M">M</button>
+            <button type="button" class="size-btn" data-value="L">L</button>
+            <button type="button" class="size-btn" data-value="XL">XL</button>
+            <button type="button" class="size-btn" data-value="XXL">XXL</button>
+          </div>
+          <input type="hidden" id="clothesValue" name="clothes" required />
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="shoes">Размер обуви <span class="field__unit">EU</span></label>
+          <input class="field__input" type="number" id="shoes" name="shoes" placeholder="38" min="33" max="48" required />
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section__label">БЛОК 02 — ПСИХОЛОГИЧЕСКИЙ ПРОФИЛЬ</div>
+        <p class="section__desc">Обязательно для допуска. Ответы влияют на программу интенсива.</p>
+
+        <div class="field">
+          <label class="field__label">Уровень страха перед мотоциклом</label>
+          <p class="field__hint">1 — абсолютное бесстрашие, 10 — паника при виде руля</p>
+          <div class="fear-scale">
+            <span class="fear-label">😎</span>
+            <input class="fear-slider" type="range" id="fear" name="fear" min="1" max="10" value="5" />
+            <span class="fear-label">😱</span>
+          </div>
+          <div class="fear-value">Уровень страха: <span id="fearDisplay">5</span>/10</div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="expectations">Ожидания от интенсива</label>
+          <p class="field__hint">Можно честно. Конфиденциально.</p>
+          <textarea class="field__textarea" id="expectations" name="expectations" placeholder="Хочу научиться кататься и не упасть..." rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section__label">БЛОК 03 — ФИНАЛЬНЫЙ ВОПРОС</div>
+
+        <div class="field">
+          <label class="field__label" for="message">Что хотите сказать инструктору?</label>
+          <p class="field__hint">Необязательно. Но если есть что — говорите)</p>
+          <textarea class="field__textarea" id="message" name="message" placeholder="..." rows="3"></textarea>
+        </div>
+      </div>
+
+      <button class="submit-btn" type="submit">
+        <span class="submit-btn__text">Сдать экзамен</span>
+        <span class="submit-btn__icon">🏁</span>
+      </button>
+
+    </form>
+
+    <div class="result" id="result" style="display:none">
+      <div class="result__stamp">ДОПУСК ВЫДАН</div>
+      <p class="result__text">Экзамен №2 успешно сдан.<br/>Оценка: <strong>отлично</strong>.</p>
+      <p class="result__sub">Инструктор уведомлён. Ждите координат трека.</p>
+      <p class="result__signed">— Настя, инструктор мото-интенсива)</p>
+    </div>
+
+    <footer class="footer">
+      <p>Документ составлен в рамках протокола «Поменяться ролями»</p>
+      <p>© Настя, 2026</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
